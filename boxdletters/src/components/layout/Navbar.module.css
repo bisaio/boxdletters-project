@@ -1,0 +1,6 @@
+.logo {
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    transform: rotate(90deg);
+}
