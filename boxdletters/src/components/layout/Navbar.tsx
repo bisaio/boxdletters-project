@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
-        <nav id="navbar">
-            <h2><Link to="/"><img className={styles.logo} src='/img/letterboxd-decal-dots-neg-rgb.svg' />Boxdletters</Link></h2>
+        <nav className={styles.navbar} id="navbar">
+            <Link to="/">
+                <img className={styles.logo} src='/img/letterboxd-decal-dots-neg-rgb.svg' />
+                <h2>Boxdletters</h2>
+            </Link>
+
             <form>
                 <input type="text" placeholder="Search a movie" />
                 <button type="submit"><BiSolidSearchAlt2 /></button>

@@ -6,7 +6,9 @@
 }
 
 body {
-    background-color: #202830;
+    background-image: linear-gradient(to top, #14181C, #28313a 97%);
+    background-attachment: fixed;
+    min-height: 100vh;
     color: #FFF
 }
 
