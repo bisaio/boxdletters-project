@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="card">
       <Navbar />
-      <h2>Boxdletters</h2>
       <Outlet />
     </div>
   )
