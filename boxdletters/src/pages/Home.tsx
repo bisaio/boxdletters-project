@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import type Movie from "../interfaces/Movie";
+import MovieCard from "../components/layout/MovieCard";
+import styles from './Home.module.css'
 
 const moviesURL = import.meta.env.VITE_API
 const apiRAtoken = import.meta.env.VITE_API_RA_TOKEN;
@@ -27,8 +29,11 @@ export default function Home() {
     }, [])
 
     return (
-        <div>
-            {topMovies && topMovies.map(movie => <p>{movie.title}</p>)}
-        </div>
+        <>
+            {/* <p>teste</p> */}
+            <div className={styles.container}>
+                {topMovies && topMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} original_title={movie.original_title} poster_path={movie.poster_path} />)}
+            </div>
+        </>
     )
 }

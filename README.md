@@ -21,7 +21,7 @@ cd boxdletters
 ```
 npm install
 ```
-3. Configure the environment variables: create a `.env` file in the root directory and add your TMDB API Read Access Token (VITE_API_RA_TOKEN) key following the example below:
+3. Configure the environment variables: create a `.env` file in the root directory and add your TMDB API Read Access Token key (VITE_API_RA_TOKEN) following the example below:
 ```
 VITE_API_RA_TOKEN=your_key_here
 VITE_API=https://api.themoviedb.org/3/movie/
