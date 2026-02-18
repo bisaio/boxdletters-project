@@ -1,6 +1,7 @@
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
-import styles from './MovieCard.module.css'
+import styles from './styles/MovieCard.module.css'
+import { Link } from 'react-router-dom'
 
 interface MovieCardProps {
     id: number,
@@ -18,16 +19,18 @@ export default function MovieCard({ id, title, original_title, poster_path }: Mo
         <>
             {/* https://react-tooltip.com/docs/getting-started -> para estilzar o tooltop */}
             <Tooltip id="my-tooltip" />
-            <div
-                key={id}
-                className={styles.container}
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={`${title} ${original_title !== title ? (`(${original_title})`) : ("")}`}
-                data-tooltip-place="top">
-                <div className={styles.card}>
-                    <img src={`${moviesIMG}${poster_path}`} alt={title} />
+            <Link to={`/movie/${id}`} >
+                <div
+                    key={id}
+                    className={styles.container}
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={`${title} ${original_title !== title ? (`(${original_title})`) : ("")}`}
+                    data-tooltip-place="top">
+                    <div className={styles.card}>
+                        <img src={`${moviesIMG}${poster_path}`} alt={title} />
+                    </div>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

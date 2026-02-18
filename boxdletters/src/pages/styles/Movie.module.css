@@ -1,0 +1,39 @@
+.backdrop {
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop img {
+    width: 70%;
+}
+
+.container {
+    display: flex;
+    gap: 10em;
+    justify-content: center;
+}
+
+.poster {
+    max-width: 15em;
+    border: 1.5px solid #2F3D48;
+    border-radius: 0.3em;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50em;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.overview {
+    width: 100%;
+    flex-wrap: wrap;
+}

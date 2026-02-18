@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 import type Movie from "../interfaces/Movie";
 import MovieCard from "../components/layout/MovieCard";
-import styles from './Home.module.css'
+import styles from './styles/Home.module.css'
+import getMovies from "../utils/getMovies";
 
 const moviesURL = import.meta.env.VITE_API
-const apiRAtoken = import.meta.env.VITE_API_RA_TOKEN;
 
 export default function Home() {
-    const [topMovies, setTopMovies] = useState<Movie[] | []>([]);
-
-    const getTopRatedMovies = async (url: string) => {
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization: `Bearer ${apiRAtoken}`
-            }
-        };
-
-        const response = await fetch(url, options);
-        const data = await response.json();
-        setTopMovies(data.results);
-    }
+    const [topMovies, setTopMovies] = useState<Movie[]>();
 
     useEffect(() => {
-        const topRatedMoviesURL = `${moviesURL}top_rated`
-        getTopRatedMovies(topRatedMoviesURL);
+        let is_mounted = true;
+
+        const fetchMovies = async () => {
+            try {
+                const top_rated_movies_data = await getMovies(`${moviesURL}top_rated`);
+                setTopMovies(top_rated_movies_data.results);
+            } catch (error) {
+                console.log("ERROR FETCHING DATA: ", error)
+            }
+        }
+
+        is_mounted && fetchMovies();
+
+        return () => {
+            is_mounted = false;
+        }
     }, [])
 
     return (

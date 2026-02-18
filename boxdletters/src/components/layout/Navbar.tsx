@@ -1,4 +1,4 @@
-import styles from './Navbar.module.css'
+import styles from './styles/Navbar.module.css'
 import { BiSolidSearchAlt2 } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
