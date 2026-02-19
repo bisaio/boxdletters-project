@@ -36,10 +36,10 @@ export default function Movie() {
             {movie && (
                 <>
                     <main>
-                        <div className={styles.backdrop}>
+                        <section className={styles.backdrop}>
                             <img src={`${moviesIMG}${movie.backdrop_path}`} alt={movie.title} />
-                        </div>
-                        <div className={styles.container}>
+                        </section>
+                        <section className={styles.container}>
                             <img className={styles.poster} src={`${moviesIMG}${movie.poster_path}`} alt={movie.title} />
                             <div className={styles.details}>
                                 <div className={styles.info}>
@@ -47,11 +47,12 @@ export default function Movie() {
                                     <p>{new Date(movie.release_date).getFullYear()}</p>
                                     <p><i>{movie.original_title !== movie.title ? movie.original_title : ""}</i></p>
                                 </div>
-                                <article className={styles.overview}>
+                                <article>
                                     <p>{movie.overview}</p>
                                 </article>
                             </div>
-                        </div>
+
+                        </section>
                     </main>
                 </>
             )}
