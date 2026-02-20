@@ -45,7 +45,7 @@ export default function Movie() {
                                 <div className={styles.info}>
                                     <h1>{movie.title}</h1>
                                     <p>{new Date(movie.release_date).getFullYear()}</p>
-                                    <p><i>{movie.original_title !== movie.title ? movie.original_title : ""}</i></p>
+                                    <p><i>{movie.original_title !== movie.title ? `'${movie.original_title}'` : ""}</i></p>
                                 </div>
                                 <article>
                                     <p>{movie.overview}</p>

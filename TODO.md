@@ -1,2 +1,3 @@
 - fazer componente de loading
 - estilizar tooltip do movie card
+- ajustar o html semantico das pages

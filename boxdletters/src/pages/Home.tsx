@@ -30,9 +30,15 @@ export default function Home() {
 
     return (
         <>
-            {/* <p>teste</p> */}
             <div className={styles.container}>
-                {topMovies && topMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} original_title={movie.original_title} poster_path={movie.poster_path} />)}
+                <div className={styles.welcome_text}>
+                    <h1>Welcome to Boxdletters</h1>
+                    <p>Find your new favorite movies with us! <br /> Start searching with <span>Boxdletters</span></p>
+                    <h2>Top rated movies</h2>
+                </div>
+                <div className={styles.movies_container}>
+                    {topMovies && topMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} poster_path={movie.poster_path} />)}
+                </div>
             </div>
         </>
     )
