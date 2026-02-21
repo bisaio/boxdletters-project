@@ -1,5 +1,28 @@
+.card {
+    position: relative;
+    width: 10em;
+    height: 15em;
+}
+
 .card img {
     max-width: 10em;
+    max-height: 15em;
+    object-fit: cover;
+    border: 1.5px solid #2F3D48;
+    border-radius: 0.2em;
+}
+
+.skeleton {
+    position: absolute;
+    inset: 0;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #252C33;
     border: 1.5px solid #2F3D48;
     border-radius: 0.2em;
 }
