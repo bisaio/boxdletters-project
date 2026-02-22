@@ -18,7 +18,7 @@ export default function Home() {
                 const top_rated_movies_data = await getMovies(`${moviesURL}top_rated`);
                 setTopMovies(top_rated_movies_data.results);
             } catch (error) {
-                console.log("ERROR FETCHING DATA: ", error)
+                console.error("ERROR FETCHING DATA: ", error)
             }
         }
 

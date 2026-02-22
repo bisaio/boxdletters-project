@@ -20,7 +20,7 @@ export default function Movie() {
                 const movie_data = await getMovies(`${moviesURL}${id}`);
                 setMovie(movie_data);
             } catch (error) {
-                console.log("ERROR FETCHING DATA: ", error)
+                console.error("ERROR FETCHING DATA: ", error)
             }
         }
 

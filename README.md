@@ -25,7 +25,7 @@ npm install
 ```
 VITE_API_RA_TOKEN=your_key_here
 VITE_API=https://api.themoviedb.org/3/movie/
-VITE_SEARCH=https://api.themoviedb.org/3/search/movie/
+VITE_SEARCH=https://api.themoviedb.org/3/search/movie?query=
 VITE_IMG=https://image.tmdb.org/t/p/w500/
 ```
 4. How to run the project (Development Mode):
