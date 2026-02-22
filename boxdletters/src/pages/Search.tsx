@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import searchMovies from "../utils/searchMovies";
 import type Movie from "../interfaces/Movie";
-import MovieCard from "../components/layout/MovieCard";
+import SearchResult from "../components/layout/SearchResult";
+import styles from './styles/Search.module.css'
 
 export default function Search() {
     const location = useLocation();
@@ -30,13 +31,21 @@ export default function Search() {
     }, [searchText])
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Results for {searchText}</h1>
-            {movies && (
-                movies.map(movie => 
-                    <MovieCard id={movie.id} key={movie.id} title={movie.title} poster_path={movie.poster_path} release_date={movie.release_date} />
-                )
-            )}
+            <hr />
+            <div className={styles.results}>
+                {movies && (
+                    movies.map(movie => {
+                        return (
+                            <>
+                                <SearchResult id={movie.id} key={movie.id} title={movie.title} original_title={movie.original_title} poster_path={movie.poster_path} release_date={movie.release_date} />
+                                <hr />
+                            </>
+                        )
+                    })
+                )}
+            </div>
         </div>
     )
 }

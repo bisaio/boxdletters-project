@@ -22,7 +22,6 @@ export default function MovieCard({ id, title, release_date, poster_path }: Movi
         <>
             <Link to={`/movie/${id}`} >
                 <div
-                    className={styles.container}
                     data-tooltip-id="movie-tooltip"
                     data-tooltip-content={`${title} (${release_year})`}
                     data-tooltip-place="top">
