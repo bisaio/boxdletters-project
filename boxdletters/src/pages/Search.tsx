@@ -31,10 +31,9 @@ export default function Search() {
     }, [searchText])
 
     return (
-        <div className={styles.container}>
-            <h1>Results for {searchText}</h1>
-            <hr />
-            <div className={styles.results}>
+        <div className={styles.container_search}>
+                <h3>{(`Showing matches for "${searchText}"`).toUpperCase()}</h3>
+                <hr />
                 {movies && (
                     movies.map(movie => {
                         return (
@@ -45,7 +44,6 @@ export default function Search() {
                         )
                     })
                 )}
-            </div>
         </div>
     )
 }

@@ -1,19 +1,20 @@
-/* .container {
-    display: flex;
-    flex-direction: column;
+.container_search {
+    padding: 1em;
 }
 
-.container hr {
-    width: 100%;
+.container_search h3 {
+    color: #99AABB;
+    margin-top: 0.7em;
+    margin-bottom: 0.5em;
+    font-weight: 300;
+}
+
+.container_search hr {
     color: #445566;
 }
-
-.results {
-    
-} */
 
 /*
 - ver pq quando nao vem o poster, o espaçamento fica diferente de quando vem
 - ajeitar o css da tela de pesquisa
-- ver pq o alt text fica sobresaindo no card de quando nao vem o poster
+- ver pq o skeleton text fica sobresaindo no card de quando nao vem o poster
 */
