@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './styles/Navbar.module.css'
-import { BiSolidSearchAlt2 } from "react-icons/bi";
+import styles from './styles/Navbar.module.css';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -10,7 +10,7 @@ export default function Navbar() {
 
     function Search(e: React.SyntheticEvent) {
         e.preventDefault(); //REVIEW - ver se mantem esse preventDefault
-        navigator('/search', {state: {search: searchText}})
+        navigator('/search', { state: { search: searchText } })
     }
 
     return (
@@ -21,8 +21,10 @@ export default function Navbar() {
             </Link>
 
             <form>
-                <input type="text" placeholder="Search a movie" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchText(e.target.value)} />
-                <button type="submit" onClick={Search}><BiSolidSearchAlt2 /></button>
+                <div className={styles.search}>
+                    <input type="text" placeholder="Search a movie" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchText(e.target.value)} />
+                    <button type="submit" onClick={Search}><FaMagnifyingGlass /></button>
+                </div>
             </form>
         </nav>
     )

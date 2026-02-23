@@ -1,3 +1,4 @@
-- fazer componente de loading
-- estilizar tooltip do movie card
+- terminar de estilizar o search do navbar
+- ajustar a pagina Movie
+- adicionar mais conteudo na home
 - ajustar o html semantico das pages

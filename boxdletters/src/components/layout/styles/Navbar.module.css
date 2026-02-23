@@ -1,3 +1,8 @@
+.logo {
+    width: 2em;
+    transform: rotate(90deg);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -11,7 +16,7 @@
 .navbar a {
     display: flex;
     align-items: center;
-    gap: 5px;          
+    gap: 5px;
 }
 
 .navbar img {
@@ -19,7 +24,26 @@
     font-size: 1.5em;
 }
 
-.logo {
-    width: 2em;
-    transform: rotate(90deg);
+.search{
+    background-color: #464d57;
+    border-radius: 3em;
+    padding: 0.4em;
+    margin-right: 1em;
+}
+
+/* ver como fazer isso funcionar */
+/* .search:focus {
+    background-color: #FFF;
+} */
+
+.search input {
+    all: unset;
+    margin-left: 0.3em;
+}
+
+.search button {
+    all: unset;
+    color: #202830;
+    margin-right: 0.3em;
+    cursor: pointer;
 }
