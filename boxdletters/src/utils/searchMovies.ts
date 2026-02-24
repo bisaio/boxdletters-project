@@ -10,9 +10,7 @@ export default async function searchMovies(searchText: string) {
         }
     };
 
-    const search_string = `${searchAPI}${searchText.replaceAll(" ", "%20")}`;
-
-    const response = await fetch(search_string, options);
+    const response = await fetch(`${searchAPI}?query=${searchText}`, options);
     const data = await response.json();
     return data;
 }

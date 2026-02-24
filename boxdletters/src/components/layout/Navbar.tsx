@@ -8,9 +8,10 @@ export default function Navbar() {
     const navigator = useNavigate();
     const [searchText, setSearchText] = useState("")
 
-    function Search(e: React.SubmitEvent<HTMLFormElement>) {
-        e.preventDefault(); //REVIEW - ver se mantem esse preventDefault
-        navigator('/search', { state: { search: searchText } })
+    const Search = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!searchText.trim()) return;
+        navigator(`/search?q=${searchText}`)
     }
 
     return (
