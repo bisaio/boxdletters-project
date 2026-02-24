@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import type Movie from "../interfaces/Movie";
-import MovieCard from "../components/layout/MovieCard";
-import styles from './styles/Home.module.css'
-import getMovies from "../utils/getMovies";
 import Loader from "../components/layout/Loader";
+import MovieCard from "../components/layout/MovieCard";
+import styles from './styles/Home.module.css';
+import getMovies from "../utils/getMovies";
+import type MovieList from "../interfaces/MovieList";
 
 const moviesURL = import.meta.env.VITE_API
 
 export default function Home() {
-    const [topMovies, setTopMovies] = useState<Movie[]>();
+    const [topMovies, setTopMovies] = useState<MovieList[]>();
 
     useEffect(() => {
         let is_mounted = true;
 
         const fetchMovies = async () => {
             try {
-                const top_rated_movies_data = await getMovieLists(`${moviesURL}top_rated`);
+                const top_rated_movies_data = await getMovies(`${moviesURL}top_rated`);
                 setTopMovies(top_rated_movies_data.results);
             } catch (error) {
                 console.error("ERROR FETCHING DATA: ", error)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import searchMovies from "../utils/searchMovies";
-import type Movie from "../interfaces/Movie";
+import type MovieList from "../interfaces/MovieList";
 import SearchResult from "../components/layout/SearchResult";
 import styles from './styles/Search.module.css'
 
@@ -9,7 +9,7 @@ export default function Search() {
     const location = useLocation();
     const { search: searchText } = location.state;
 
-    const [movies, setMovies] = useState<Movie[]>();
+    const [movies, setMovies] = useState<MovieList[]>();
 
     useEffect(() => {
         let is_mounted = true;

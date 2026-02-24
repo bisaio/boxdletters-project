@@ -1,6 +1,6 @@
 const apiRAtoken = import.meta.env.VITE_API_RA_TOKEN
 
-export default async function getMovieLists(url: string) {
+export default async function getMovies(url: string) {
     const options = {
         method: 'GET',
         headers: {
