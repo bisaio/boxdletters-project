@@ -24,26 +24,41 @@
     font-size: 1.5em;
 }
 
-.search{
-    background-color: #464d57;
+.search {
+    display: flex;
+    align-items: center;
+    width: 190px;
+    background-color: #464D57;
     border-radius: 3em;
     padding: 0.4em;
     margin-right: 1em;
+    transition: 0.2s;
+    font-family: "Inter";
+    color: #202830;
 }
 
-/* ver como fazer isso funcionar */
-/* .search:focus {
+.search:focus-within {
     background-color: #FFF;
-} */
+    /* width: 220px; --> deixar isso para quando fazer a pesquisa abrir ao clicar na lupa*/
+}
 
 .search input {
     all: unset;
+    flex: 1;
+    min-width: 0;
     margin-left: 0.3em;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.search input::placeholder {
+    color: #202830;
+    opacity: 1;
 }
 
 .search button {
     all: unset;
-    color: #202830;
+    flex-shrink: 0;
     margin-right: 0.3em;
     cursor: pointer;
 }
