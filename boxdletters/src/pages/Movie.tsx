@@ -14,6 +14,7 @@ export default function Movie() {
 
     const [movie, setMovie] = useState<Movie>();
     const [credits, setCredits] = useState<MovieCredits>()
+    const [showCast, setShowCast] = useState(true);
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -56,24 +57,26 @@ export default function Movie() {
                                     <p>{movie.overview}</p>
                                 </article>
                                 <article>
-                                    <p>Cast</p>
+                                    <ul>
+                                        <li style={{color: `${!showCast ? "#FFF" : "#3391fd"}`}} onClick={()=>setShowCast(!showCast)}>Cast</li>
+                                        <li style={{color: `${showCast ? "#FFF" : "#3391fd"}`}} onClick={()=>setShowCast(!showCast)}>Crew</li>
+                                    </ul>
                                     <div className={styles.credits}>
                                         {
-                                            credits?.cast && (
+                                            showCast && (
                                                 <>
-                                                    {credits.cast.map(c => <CreditCard name={c.name} character={c.character} />)}
+                                                    {credits?.cast.map(c => <CreditCard name={c.name} character={c.character} />)}
                                                 </>
                                             )
                                         }
                                     </div>
                                 </article>
                                 <article>
-                                    <p>Crew</p>
                                     <div className={styles.credits}>
                                         {
-                                            credits?.crew && (
+                                            !showCast && (
                                                 <>
-                                                    {credits.crew.map(c => <CreditCard name={c.name} department={c.department}/>)}
+                                                    {credits?.crew.map(c => <CreditCard name={c.name} department={c.department}/>)}
                                                 </>
                                             )
                                         }
