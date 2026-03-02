@@ -18,10 +18,12 @@ export default function Movie() {
     useEffect(() => {
         const fetchMovie = async () => {
             try {
-                const movie_data = await getMovies(`${moviesURL}${id}`);
-                setMovie(movie_data);
+                const [movie_data, movie_credits_data] = await Promise.all([
+                    getMovies(`${moviesURL}${id}`),
+                    getMovies(`${moviesURL}${id}/credits`)
+                ])
 
-                const movie_credits_data = await getMovies(`${moviesURL}${id}/credits`)
+                setMovie(movie_data);
                 setCredits(movie_credits_data);
 
             } catch (error) {
@@ -57,9 +59,21 @@ export default function Movie() {
                                     <p>Cast</p>
                                     <div className={styles.credits}>
                                         {
-                                            credits && (
+                                            credits?.cast && (
                                                 <>
                                                     {credits.cast.map(c => <CreditCard name={c.name} character={c.character} />)}
+                                                </>
+                                            )
+                                        }
+                                    </div>
+                                </article>
+                                <article>
+                                    <p>Crew</p>
+                                    <div className={styles.credits}>
+                                        {
+                                            credits?.crew && (
+                                                <>
+                                                    {credits.crew.map(c => <CreditCard name={c.name} department={c.department}/>)}
                                                 </>
                                             )
                                         }
