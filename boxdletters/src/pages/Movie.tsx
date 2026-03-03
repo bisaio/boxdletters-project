@@ -15,6 +15,7 @@ export default function Movie() {
     const [movie, setMovie] = useState<Movie>();
     const [credits, setCredits] = useState<MovieCredits>()
     const [showCast, setShowCast] = useState(true);
+    const [showCrew, setShowCrew] = useState(false);
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -56,11 +57,18 @@ export default function Movie() {
                                 <article className={styles.overview}>
                                     <p>{movie.overview}</p>
                                 </article>
-                                <article>
+                                <article className={styles.credits_container}>
                                     <ul>
-                                        <li style={{color: `${!showCast ? "#FFF" : "#3391fd"}`}} onClick={()=>setShowCast(!showCast)}>Cast</li>
-                                        <li style={{color: `${showCast ? "#FFF" : "#3391fd"}`}} onClick={()=>setShowCast(!showCast)}>Crew</li>
+                                        <li style={{ color: `${showCast ? "#FFF" : "#00E054"}` }} onClick={() => {
+                                            setShowCast(true);
+                                            setShowCrew(false);
+                                        }}>Cast</li>
+                                        <li style={{ color: `${showCrew ? "#FFF" : "#00E054"}` }} onClick={() => {
+                                            setShowCast(false)
+                                            setShowCrew(true)
+                                        }}>Crew</li>
                                     </ul>
+                                    <hr />
                                     <div className={styles.credits}>
                                         {
                                             showCast && (
@@ -69,14 +77,10 @@ export default function Movie() {
                                                 </>
                                             )
                                         }
-                                    </div>
-                                </article>
-                                <article>
-                                    <div className={styles.credits}>
                                         {
                                             !showCast && (
                                                 <>
-                                                    {credits?.crew.map(c => <CreditCard name={c.name} department={c.department}/>)}
+                                                    {credits?.crew.map(c => <CreditCard name={c.name} department={c.department} />)}
                                                 </>
                                             )
                                         }

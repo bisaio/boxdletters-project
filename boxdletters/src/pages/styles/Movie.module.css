@@ -59,6 +59,26 @@
     margin-left: 1em;
 }
 
+.credits_container {
+    margin-top: 0.5em;
+}
+
+.credits_container hr {
+    margin: 0 0 0.5em 0;
+    color: #445566;
+}
+
+.credits_container ul {
+    display: flex;
+    list-style: none;
+    cursor: pointer;
+}
+
+.credits_container li {
+    margin: 0.2em;
+    
+}
+
 .credits {
     display: flex;
     flex-wrap: wrap;
