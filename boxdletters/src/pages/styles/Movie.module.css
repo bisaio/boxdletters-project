@@ -76,7 +76,11 @@
 
 .credits_container li {
     margin: 0.2em;
-    
+    color: #00E054;
+}
+
+.credits_container li.credits_active {
+    color: #FFF;
 }
 
 .credits {

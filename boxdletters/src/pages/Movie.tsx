@@ -14,8 +14,7 @@ export default function Movie() {
 
     const [movie, setMovie] = useState<Movie>();
     const [credits, setCredits] = useState<MovieCredits>()
-    const [showCast, setShowCast] = useState(true);
-    const [showCrew, setShowCrew] = useState(false);
+    const [creditsTab, setCreditsTab] = useState<"cast" | "crew">("cast")
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -59,29 +58,32 @@ export default function Movie() {
                                 </article>
                                 <article className={styles.credits_container}>
                                     <ul>
-                                        <li style={{ color: `${showCast ? "#FFF" : "#00E054"}` }} onClick={() => {
-                                            setShowCast(true);
-                                            setShowCrew(false);
-                                        }}>Cast</li>
-                                        <li style={{ color: `${showCrew ? "#FFF" : "#00E054"}` }} onClick={() => {
-                                            setShowCast(false)
-                                            setShowCrew(true)
-                                        }}>Crew</li>
+                                        <li
+                                            className={creditsTab === "cast" ? styles.credits_active : ""}
+                                            onClick={() => { setCreditsTab("cast") }}
+                                        >
+                                            Cast
+                                        </li>
+                                        <li
+                                            className={creditsTab === "crew" ? styles.credits_active : ""}
+                                            onClick={() => { setCreditsTab("crew") }}
+                                        >
+                                            Crew
+                                        </li>
                                     </ul>
                                     <hr />
                                     <div className={styles.credits}>
                                         {
-                                            showCast && (
-                                                <>
-                                                    {credits?.cast.map(c => <CreditCard name={c.name} character={c.character} />)}
-                                                </>
+                                            creditsTab === "cast" && credits?.cast.map(
+                                                c =>
+                                                    <CreditCard key={c.id} name={c.name} character={c.character} />
                                             )
+
                                         }
                                         {
-                                            !showCast && (
-                                                <>
-                                                    {credits?.crew.map(c => <CreditCard name={c.name} department={c.department} />)}
-                                                </>
+                                            creditsTab === "crew" && credits?.crew.map(
+                                                c =>
+                                                    <CreditCard key={c.id} name={c.name} department={c.department} />
                                             )
                                         }
                                     </div>
