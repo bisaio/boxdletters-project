@@ -16,6 +16,30 @@ export default function Movie() {
     const [credits, setCredits] = useState<MovieCredits>()
     const [creditsTab, setCreditsTab] = useState<"cast" | "crew">("cast")
 
+    const tabs = [
+        { id: "cast", label: "Cast" },
+        { id: "crew", label: "Crew" }
+    ] as const;
+
+    const tabsContent = {
+        cast: credits?.cast.map(c =>
+            <CreditCard
+                key={c.id}
+                name={c.name}
+                character={c.character}
+            />
+        ),
+
+        crew: credits?.crew.map(c =>
+            <CreditCard
+                key={c.id}
+                name={c.name}
+                department={c.department}
+            />
+        )
+    }
+
+
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -58,34 +82,19 @@ export default function Movie() {
                                 </article>
                                 <article className={styles.credits_container}>
                                     <ul>
-                                        <li
-                                            className={creditsTab === "cast" ? styles.credits_active : ""}
-                                            onClick={() => { setCreditsTab("cast") }}
-                                        >
-                                            Cast
-                                        </li>
-                                        <li
-                                            className={creditsTab === "crew" ? styles.credits_active : ""}
-                                            onClick={() => { setCreditsTab("crew") }}
-                                        >
-                                            Crew
-                                        </li>
+                                        {tabs.map(tab => (
+                                            <li
+                                                key={tab.id}
+                                                className={creditsTab === tab.id ? styles.credits_active : ""}
+                                                onClick={() => setCreditsTab(tab.id)}
+                                            >
+                                                {tab.label}
+                                            </li>
+                                        ))}
                                     </ul>
                                     <hr />
                                     <div className={styles.credits}>
-                                        {
-                                            creditsTab === "cast" && credits?.cast.map(
-                                                c =>
-                                                    <CreditCard key={c.id} name={c.name} character={c.character} />
-                                            )
-
-                                        }
-                                        {
-                                            creditsTab === "crew" && credits?.crew.map(
-                                                c =>
-                                                    <CreditCard key={c.id} name={c.name} department={c.department} />
-                                            )
-                                        }
+                                        {credits && tabsContent[creditsTab]}
                                     </div>
                                 </article>
                             </div>
