@@ -4,7 +4,8 @@ import type Movie from "../interfaces/Movie";
 import getMovies from "../utils/getMovies";
 import styles from './styles/Movie.module.css'
 import type MovieCredits from "../interfaces/MovieCredits";
-import CreditCard from "../components/layout/CreditCard";
+import CreditCardCast from "../components/layout/CreditCardCast";
+import CreditCardCrew from "../components/layout/CreditCardCrew";
 
 const moviesURL = import.meta.env.VITE_API
 const moviesIMG = import.meta.env.VITE_IMG
@@ -23,20 +24,14 @@ export default function Movie() {
 
     const tabsContent = {
         cast: credits?.cast.map(c =>
-            <CreditCard
+            <CreditCardCast
                 key={c.id}
                 name={c.name}
                 character={c.character}
             />
         ),
 
-        crew: credits?.crew.map(c =>
-            <CreditCard
-                key={c.id}
-                name={c.name}
-                department={c.department}
-            />
-        )
+        crew: credits && <CreditCardCrew crew={credits.crew}/>
     }
 
 
