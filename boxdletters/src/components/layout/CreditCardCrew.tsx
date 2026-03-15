@@ -1,6 +1,6 @@
 import type MovieCredits from '../../interfaces/MovieCredits'
 import CreditCardCast from './CreditCardCast'
-import styles from './styles/CreditCardCast.module.css'
+import styles from './styles/CreditCardCrew.module.css'
 
 type CreditCardCrewProps = {
     crew: MovieCredits["crew"]
@@ -21,18 +21,21 @@ export default function CreditCardCrew({ crew }: CreditCardCrewProps) {
 
 
     return (
-        <>
+        <div className={styles.container}>
             {
                 Object.entries(crewByDepartment).map(([department, members]) =>
-                    <div key={department}>
-                        <h3>{department}</h3>
-
-                        {members.map(member =>
-                            <CreditCardCast name={member.name} />
-                        )}
+                    <div key={department} className={styles.crew_container}>
+                        <div>
+                            <h3>{department}</h3>
+                        </div>
+                        <div>
+                            {members.map(member =>
+                                <CreditCardCast name={member.name} />
+                            )}
+                        </div>
                     </div>
                 )
             }
-        </>
+        </div>
     )
 }

@@ -1,9 +1,13 @@
-.credits p {
-    font-size: 0.8em;
-    border-radius: 0.2em;
-    padding: 0.2em 0.6em;
-    margin: 0.3em;
-    background-color: #283038;
-    box-shadow: 1px -1px 0px 0px #2f363d;
-    color: #99AABB;
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.crew_container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    /* grid-template-columns: max-content 1fr; */
+    align-items: start;
+    gap: 1em;
 }
